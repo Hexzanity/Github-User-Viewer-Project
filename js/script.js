@@ -58,6 +58,10 @@ function createErrorCard(message) {
 function createUserCard(user) {
   const userID = user.login || user.name;
   const userBio = user.bio ? `<p>${user.bio}</p>` : "";
+  const userBlog = user.blog ? `<p>${user.blog}</p>` : "";
+  const userHTMLURL = user.html_url? `<p>${user.html_url}</p>` : "";
+  const userLocation = user.location ? `<p>${user.location}</p>` : "";
+  const userCompany = user.company ? `<p>${user.company}</p>` : "";
   const cardHTML = `
         <div class="card">
             <div>
@@ -66,6 +70,10 @@ function createUserCard(user) {
             <div class="user-info">
                 <h2>${userID}</h2>
                 ${userBio}
+                <p><a href="${user.blog}">${user.blog}</a></p>
+                <p><strong>GitHub Url:</strong><a href="${user.html_url}">${user.html_url}</a></p>
+                <p><strong>Location:</strong>${user.location}</p>
+                <p><strong>Company:</strong> ${user.company}</p>
                 <ul>
                     <li>
                         ${user.followers}
